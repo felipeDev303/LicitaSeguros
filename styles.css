@@ -370,7 +370,7 @@ a {
   position: fixed;
   top: 0;
   left: 0;
-  width: 50px;
+  width: 40px;
   height: 100vh;
   background: #fff;
   display: flex;
@@ -600,6 +600,41 @@ a {
   border: 1px solid #f5c6cb;
   padding: 1rem;
   border-radius: 8px;
+}
+
+/* KPIs SECTION */
+.opportunities-kpis {
+  display: flex;
+  flex-direction: row;
+  gap: 1rem;
+  margin: 1.2rem 0 1.5rem 0;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+}
+.kpi {
+  background: #f7fafd;
+  border: 1px solid #e0e6ed;
+  border-radius: 10px;
+  padding: 0.7rem 1rem;
+  min-width: 140px;
+  width: 150px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-shadow: 0 1px 4px rgba(34, 46, 60, 0.04);
+}
+.kpi-value {
+  font-size: 1.2em;
+  font-weight: 800;
+  color: #1e88e5;
+  letter-spacing: -1px;
+  margin-bottom: 0.2em;
+}
+.kpi-label {
+  font-size: 0.9em;
+  color: #4b5c6b;
+  text-align: center;
+  line-height: 1.2;
 }
 
 /* Responsive */

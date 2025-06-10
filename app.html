@@ -89,6 +89,25 @@
           <h1>Bienvenido, [Nombre de usuario]</h1>
           <h2>Oportunidades Destacadas</h2>
         </div>
+        <!-- KPIs de oportunidades (horizontal, compactas, texto bajo el número) -->
+        <div id="opportunities-kpis" class="opportunities-kpis">
+          <div class="kpi">
+            <span class="kpi-value" id="kpi-total-vigentes">-</span>
+            <span class="kpi-label">Oportunidades Disponibles</span>
+          </div>
+          <div class="kpi">
+            <span class="kpi-value" id="kpi-monto-licitaciones">-</span>
+            <span class="kpi-label">En Licitaciones</span>
+          </div>
+          <div class="kpi">
+            <span class="kpi-value" id="kpi-monto-compra-agil">-</span>
+            <span class="kpi-label">En Compra Ágil</span>
+          </div>
+          <div class="kpi">
+            <span class="kpi-value" id="kpi-cierran-semana">-</span>
+            <span class="kpi-label">Cierran esta semana</span>
+          </div>
+        </div>
         <!-- Aquí se consume el servicio y se muestran datos personalizados -->
         <section id="opportunities-section">
           <div id="loading-spinner" style="display: none">

@@ -1,9 +1,3 @@
-// 1. Obtener referencias a los elementos del DOM
-
-// La URL de la API de Mercado Público
-
-// 2. Crear la función que hará la petición
-
 async function fetchData() {
   try {
     const response = await fetch(apiUrl);
@@ -13,10 +7,6 @@ async function fetchData() {
     console.error("Error fetching data:", error);
   }
 }
-
-// 3. Usar Async/Await para hacer la petición GET
-
-// 4. Añadir un evento al botón para que llame a nuestra función
 
 /**
  * Función que toma un array de oportunidades y las renderiza en el DOM.
@@ -79,6 +69,66 @@ function displayOpportunities(opportunities, container) {
 }
 
 /**
+ * Calcula y muestra los KPIs de oportunidades en el dashboard.
+ * @param {Array} opportunities - El array de objetos de oportunidades del JSON.
+ */
+function updateOpportunitiesKPIs(opportunities) {
+  // Selección de elementos KPI
+  const elTotalVigentes = document.getElementById("kpi-total-vigentes");
+  const elMontoLicitaciones = document.getElementById("kpi-monto-licitaciones");
+  const elMontoCompraAgil = document.getElementById("kpi-monto-compra-agil");
+  const elCierranSemana = document.getElementById("kpi-cierran-semana");
+
+  if (!opportunities || opportunities.length === 0) {
+    elTotalVigentes.textContent = "0";
+    elMontoLicitaciones.textContent = "$0";
+    elMontoCompraAgil.textContent = "$0";
+    elCierranSemana.textContent = "0";
+    return;
+  }
+
+  // Oportunidades vigentes: CodigoEstado === 5 (Abierta)
+  const vigentes = opportunities.filter((op) => op.CodigoEstado === 5);
+
+  // Suma de montos de licitaciones vigentes (TipoLicitacion !== 'Compra Ágil')
+  const montoLicitaciones = vigentes
+    .filter((op) => op.TipoLicitacion !== "Compra Ágil")
+    .reduce((sum, op) => sum + (op.MontoEstimado || 0), 0);
+
+  // Suma de montos de compras ágiles vigentes (TipoLicitacion === 'Compra Ágil')
+  const montoCompraAgil = vigentes
+    .filter((op) => op.TipoLicitacion === "Compra Ágil")
+    .reduce((sum, op) => sum + (op.MontoEstimado || 0), 0);
+
+  // Oportunidades que cierran esta semana (vigentes y FechaCierre en la semana actual)
+  const now = new Date();
+  const firstDay = new Date(now);
+  firstDay.setDate(now.getDate() - now.getDay()); // Domingo
+  firstDay.setHours(0, 0, 0, 0);
+  const lastDay = new Date(firstDay);
+  lastDay.setDate(firstDay.getDate() + 6);
+  lastDay.setHours(23, 59, 59, 999);
+
+  const cierranSemana = vigentes.filter((op) => {
+    const cierre = new Date(op.FechaCierre);
+    return cierre >= firstDay && cierre <= lastDay;
+  });
+
+  // Formateo de montos CLP
+  const formatCLP = (n) =>
+    n.toLocaleString("es-CL", {
+      style: "currency",
+      currency: "CLP",
+      maximumFractionDigits: 0,
+    });
+
+  elTotalVigentes.textContent = vigentes.length;
+  elMontoLicitaciones.textContent = formatCLP(montoLicitaciones);
+  elMontoCompraAgil.textContent = formatCLP(montoCompraAgil);
+  elCierranSemana.textContent = cierranSemana.length;
+}
+
+/**
  * Función principal asíncrona que orquesta el proceso.
  */
 async function loadOpportunities() {
@@ -110,6 +160,7 @@ async function loadOpportunities() {
 
     // 6. Llamamos a la función que renderiza los datos, pasándole el array 'Listado'.
     displayOpportunities(data.Listado, opportunitiesContainer);
+    updateOpportunitiesKPIs(data.Listado);
   } catch (error) {
     // 7. Si algo sale mal, lo mostramos al usuario.
     console.error("Error al cargar las oportunidades:", error);
