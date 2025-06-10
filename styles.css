@@ -83,13 +83,16 @@ a {
   gap: 10px;
 }
 
-.nav-logo img {
-  height: 28px;
-  max-width: 110px;
+/* Logo igual en todos los navbars horizontales */
+.nav-logo img,
+.navbar-logo img {
+  height: 28px !important;
+  max-width: 110px !important;
   display: inline-block;
   vertical-align: middle;
 }
 
+/* Nav horizontal */
 .nav-horizontal ul {
   display: flex;
   align-items: center;
@@ -118,7 +121,6 @@ a {
   text-decoration: underline;
 }
 
-/* NUEVO CÓDIGO PARA ALINEAR LOGO Y PESTAÑAS EN NAVBAR HORIZONTAL */
 .navbar-horizontal {
   background: #fff;
   box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.06);
@@ -143,8 +145,8 @@ a {
 }
 
 .navbar-logo img {
-  height: 40px;
-  width: auto;
+  height: 14px;
+  max-width: 50px;
   display: block;
 }
 
@@ -154,7 +156,7 @@ a {
   list-style: none;
   margin: 0;
   padding: 0;
-  margin-left: 3rem; /* Espacio entre logo y tabs */
+  margin-left: 3rem;
 }
 
 .navbar-tabs li {
@@ -165,16 +167,17 @@ a {
 .navbar-tabs a {
   color: #222;
   text-decoration: none;
-  font-weight: 500;
-  font-size: 1rem;
+  font-weight: 200 !important;
+  font-size: 0.8rem;
   padding: 0.5em 1em;
   border-radius: 4px;
   transition: background 0.2s;
+  letter-spacing: 0.01em;
+  font-family: "Inter", sans-serif !important;
 }
 
 .navbar-tabs a:hover,
 .navbar-tabs a.active {
-  background: #f2f2f2;
   color: #0071e3;
 }
 
@@ -468,6 +471,22 @@ a {
   margin-left: 1.5rem;
 }
 
+.main-header-block .section-label {
+  color: #138bde;
+  font-weight: 200;
+  letter-spacing: 0.04em;
+  margin-bottom: 0.2em;
+  font-size: 1em;
+  font-family: "Inter", sans-serif;
+}
+
+.main-header-block .hero-tagline {
+  color: #4b5c6b;
+  font-weight: 200;
+  font-size: 1em;
+  font-family: "Inter", sans-serif;
+}
+
 /* Grupo de enlaces en la barra lateral */
 .sidebar-group {
   display: block;
@@ -499,6 +518,21 @@ a {
   .hero-image {
     display: none;
   }
+  .main-content {
+    margin-top: 72px;
+  }
+}
+
+@media (max-width: 700px) {
+  .main-header-block .header-flex {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.2rem;
+  }
+  .main-header-block .header-flex .hero-tagline {
+    margin-left: 0;
+    margin-top: 0.2em;
+  }
 }
 
 @media (max-width: 600px) {
@@ -520,6 +554,10 @@ a {
     right: 0;
     z-index: 100;
     width: 100%;
+  }
+  .main-content {
+    margin-top: 60px;
+    padding-top: 8px;
   }
   .hero-section {
     padding: 32px 0;
@@ -554,6 +592,22 @@ a {
   .nav-logo a {
     font-size: 1em;
   }
+}
+
+.guides-list {
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+  padding-left: 1.5rem;
+  font-size: 1em;
+  color: #222e3c;
+  font-weight: 300;
+  line-height: 1.7;
+}
+
+.guides-list li {
+  margin-bottom: 0.7em;
+  font-weight: 300;
+  font-family: "Inter", sans-serif;
 }
 
 /* Ajustes específicos para el botón de logout en el sidebar */
