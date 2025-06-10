@@ -19,52 +19,70 @@
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
-    <div class="container">
-      <nav class="sidebar">
-        <ul>
-          <li>
-            <a href="index.html">
-              <img src="public/icons/home.svg" alt="Inicio" />
-            </a>
-          </li>
-          <li>
-            <a href="busqueda.html">
-              <img src="public/icons/search.svg" alt="Busqueda" />
-            </a>
-          </li>
-          <li>
-            <a href="seguimiento.html">
-              <img src="public/icons/tracking.svg" alt="Seguimiento" />
-            </a>
-          </li>
-          <li>
-            <a href="calendario.html">
-              <img src="public/icons/calendar.svg" alt="Calendario" />
-            </a>
-          </li>
-          <li>
-            <a href="configuracion.html">
-              <img src="public/icons/settings.svg" alt="Configuración" />
-            </a>
-          </li>
-          <li>
-            <a href="ayuda.html">
-              <img src="public/icons/help.svg" alt="Ayuda" />
-            </a>
-          </li>
-          <li>
-            <a href="cuenta.html">
-              <img src="public/icons/account.svg" alt="Cuenta" />
-            </a>
-          </li>
-        </ul>
+    <header>
+      <nav class="navbar-horizontal">
+        <div class="navbar-container">
+          <a href="index.html" class="navbar-logo">
+            <img src="public/images/logo.svg" alt="LicitaSeguro" />
+          </a>
+          <ul class="navbar-tabs">
+            <li><a href="#">Adjudica</a></li>
+            <li><a href="#">Vende</a></li>
+          </ul>
+        </div>
       </nav>
-
+    </header>
+    <div class="container">
       <main class="main-content">
-        <h1>Bienvenido, [Nombre de usuario]</h1>
+        <nav class="sidebar">
+          <ul>
+            <div class="sidebar-group">
+              <li>
+                <a href="app.html">
+                  <img src="public/icons/home.svg" alt="Inicio" />
+                </a>
+              </li>
+              <li>
+                <a href="busqueda.html">
+                  <img src="public/icons/search.svg" alt="Busqueda" />
+                </a>
+              </li>
+              <li>
+                <a href="seguimiento.html">
+                  <img src="public/icons/tracking.svg" alt="Seguimiento" />
+                </a>
+              </li>
+              <li>
+                <a href="calendario.html">
+                  <img src="public/icons/calendar.svg" alt="Calendario" />
+                </a>
+              </li>
+            </div>
+            <div class="sidebar-group">
+              <li>
+                <a href="configuracion.html">
+                  <img src="public/icons/settings.svg" alt="Configuración" />
+                </a>
+              </li>
+              <li>
+                <a href="ayuda.html">
+                  <img src="public/icons/help.svg" alt="Ayuda" />
+                </a>
+              </li>
+              <li>
+                <a href="cuenta.html">
+                  <img src="public/icons/account.svg" alt="Cuenta" />
+                </a>
+              </li>
+            </div>
+          </ul>
+        </nav>
+        <p>Cuenta</p>
+        <h1>Cuenta</h1>
+        <p>| Configura tu perfil y preferencias.</p>
+        <p>Ver guía</p>
         <!-- Aquí se consume el servicio y se muestran datos personalizados -->
         <section>
-          <h2>Oportunidades Destacadas</h2>
           <!-- Lista dinámica de oportunidades, por ejemplo usando JS/fetch -->
         </section>
       </main>
