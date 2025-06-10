@@ -1,0 +1,459 @@
+/* Configuración Global y Fuentes */
+body,
+html {
+  margin: 0;
+  padding: 0;
+  font-family: "Inter", sans-serif;
+  background-color: #fff; /* Fondo base */
+  color: #222e3c;
+}
+
+body {
+  /* Elimina padding-top del body para evitar espacio extra */
+  padding-top: 0;
+}
+
+p,
+button,
+a {
+  /* Usamos un peso ligero para el texto de párrafo y enlaces */
+  font-weight: 300;
+}
+
+/* Contenedor principal: solo aplica flex si hay sidebar */
+.container.sidebar-container {
+  display: flex;
+  flex-direction: row;
+  max-width: none;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* Si NO hay sidebar, usa el layout clásico centrado */
+.container:not(.sidebar-container) {
+  max-width: 1200px;
+  margin: 0 auto;
+  width: 100%;
+  padding-left: 24px;
+  padding-right: 24px;
+  box-sizing: border-box;
+}
+
+/* Nav horizontal para landing */
+.nav-horizontal {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  background: #fff;
+  color: #222e3c;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  display: flex;
+  justify-content: space-between; /* Mejor para distribuir logo y enlaces */
+  align-items: center;
+  height: 64px;
+  box-sizing: border-box;
+  padding: 0 24px;
+  transition: box-shadow 0.3s ease;
+}
+
+.nav-horizontal.nav-shadow {
+  box-shadow: 0 2px 12px rgba(34, 46, 60, 0.07);
+}
+
+/* Logo */
+.nav-logo {
+  display: flex;
+  align-items: center;
+}
+
+.nav-logo a {
+  color: #222e3c;
+  text-decoration: none;
+  font-weight: 800;
+  font-size: 1.5em;
+  letter-spacing: 0.5px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.nav-logo img {
+  height: 38px;
+  width: auto;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.nav-horizontal ul {
+  display: flex;
+  align-items: center;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  gap: 24px; /* Espacio entre elementos del menú */
+}
+
+.nav-horizontal li {
+  margin: 0;
+  border: none;
+}
+
+.nav-horizontal a {
+  color: #222e3c;
+  text-decoration: none;
+  font-weight: 400; /* Peso normal para enlaces de nav */
+  font-size: 0.9em;
+  letter-spacing: 0.1px;
+  transition: color 0.2s;
+}
+
+.nav-horizontal a:hover {
+  color: #1e88e5;
+  text-decoration: underline;
+}
+
+/* HERO SECTION */
+.hero-section {
+  display: flex;
+  align-items: stretch;
+  gap: 56px;
+  margin-bottom: 56px;
+  padding: 64px 24px 0px 24px;
+  width: 100%;
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+  min-height: calc(100vh - 64px);
+  position: relative;
+  box-sizing: border-box;
+  /* Fondo degradado doble: primero blanco translúcido arriba, luego celeste a rojo */
+  background: linear-gradient(
+      to bottom,
+      rgba(255, 255, 255, 0.9) 0%,
+      rgba(255, 255, 255, 0) 100%
+    ),
+    linear-gradient(
+      120deg,
+      rgba(30, 136, 229, 0.11) 0%,
+      rgba(255, 0, 80, 0.11) 100%
+    );
+  border-radius: 18px;
+  box-shadow: 0 4px 24px rgba(34, 46, 60, 0.06);
+}
+
+.hero-content {
+  flex: 1 1 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 20px; /* Espaciado uniforme entre todos los elementos hijos */
+  text-align: left;
+}
+
+.hero-content .highlight-light {
+  color: #8363d3;
+  margin: 0;
+  padding: 0;
+  font-weight: 700;
+}
+
+.hero-content h1 {
+  font-size: 2.5em;
+  font-weight: 700;
+  margin: 0;
+  color: #222e3c;
+  line-height: 1.2;
+}
+
+.hero-tagline {
+  font-size: 0.8em;
+  color: #4b5c6b;
+  margin: 0;
+  line-height: 1.5;
+}
+
+.cta.cta-lg {
+  display: inline-block;
+  background: #1e88e5;
+  color: #fff;
+  font-size: 0.8em;
+  font-weight: 400; /* Peso aumentado para legibilidad */
+  padding: 12px 24px;
+  border-radius: 24px;
+  text-decoration: none;
+  box-shadow: 0 2px 8px rgba(30, 136, 229, 0.08);
+  transition: all 0.2s ease-in-out;
+  align-self: flex-start;
+  letter-spacing: 0.1px;
+}
+
+.cta.cta-lg:hover {
+  background: #1565c0;
+  color: #fff;
+  box-shadow: 0 4px 16px rgba(30, 136, 229, 0.18);
+  transform: translateY(-2px);
+  text-decoration: none;
+}
+
+.hero-image {
+  flex: 1 1 50%;
+  display: flex;
+  align-self: stretch;
+}
+
+.hero-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  align-self: flex-end; /* Alinea la imagen al final del contenedor */
+}
+
+/* BENEFITS SECTION */
+.benefits-section {
+  display: flex;
+  justify-content: center;
+  gap: 32px;
+  padding: 56px 0;
+}
+.benefit {
+  background: #fff;
+  border: 1px solid #e0e6ed;
+  border-radius: 14px;
+  padding: 32px 24px;
+  text-align: center;
+  flex: 1;
+  max-width: 320px;
+}
+.benefit img {
+  width: 48px;
+  margin-bottom: 18px;
+}
+.benefit h3 {
+  color: #1e88e5;
+  margin-top: 0;
+  margin-bottom: 12px;
+  font-size: 1.15em;
+}
+.benefit p {
+  color: #4b5c6b;
+  font-size: 1em;
+  line-height: 1.6;
+}
+
+/* TESTIMONIALS SECTION */
+.testimonials-section {
+  padding: 56px 0;
+  text-align: center;
+  background-color: #f8fafc;
+  border-radius: 18px;
+}
+.testimonials-section h2 {
+  color: #222e3c;
+  font-size: 1.5em;
+  margin-top: 0;
+  margin-bottom: 32px;
+}
+.testimonials-list {
+  display: flex;
+  justify-content: center;
+  gap: 32px;
+  flex-wrap: wrap;
+}
+.testimonial {
+  background: #fff;
+  border: 1px solid #e0e6ed;
+  border-radius: 14px;
+  padding: 28px 20px;
+  max-width: 320px;
+  font-style: italic;
+  color: #222e3c;
+}
+.testimonial span {
+  display: block;
+  margin-top: 16px;
+  font-size: 0.95em;
+  color: #1e88e5;
+  font-style: normal;
+  font-weight: 700;
+}
+
+/* FOOTER */
+.landing-footer {
+  text-align: center;
+  color: #4b5c6b;
+  font-size: 0.9em;
+  margin-top: 32px;
+  padding: 32px 0;
+  border-top: 1px solid #e0e6ed;
+}
+.landing-footer a {
+  color: #1e88e5;
+  text-decoration: none;
+  margin: 0 8px;
+  font-weight: 400;
+}
+.landing-footer a:hover {
+  text-decoration: underline;
+}
+
+/* Barra lateral izquierda solo con iconos */
+.sidebar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 72px;
+  height: 100vh;
+  background: #fff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 32px;
+  z-index: 1000; /* Asegura que esté por encima del main */
+  box-shadow: 2px 0 8px rgba(34, 46, 60, 0.04);
+}
+
+.sidebar-opacity {
+  background: rgba(255, 255, 255, 0.85);
+  -webkit-backdrop-filter: blur(2px);
+  backdrop-filter: blur(2px);
+  /* Puedes ajustar el valor de opacidad según lo que prefieras */
+}
+
+.sidebar ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+.sidebar li {
+  margin: 0;
+}
+
+.sidebar a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  border-radius: 12px;
+  transition: background 0.2s;
+}
+
+.sidebar a:hover {
+  background: #f0f4fa;
+}
+
+.sidebar img {
+  width: 24px; /* Antes 32px */
+  height: 24px; /* Antes 32px */
+  display: block;
+  filter: none;
+  background: transparent;
+  opacity: 0.4;
+}
+
+/* Oculta cualquier texto dentro de los enlaces del sidebar */
+.sidebar a span,
+.sidebar a .label,
+.sidebar a p {
+  display: none !important;
+  visibility: hidden !important;
+  width: 0 !important;
+  height: 0 !important;
+  overflow: hidden !important;
+}
+
+/* Ajuste del main solo si hay sidebar */
+.sidebar ~ main,
+.container.sidebar-container main {
+  margin-left: 72px;
+  padding: 40px 32px;
+  flex: 1;
+  min-height: 100vh;
+  box-sizing: border-box;
+  background: #f8fafc;
+  position: relative;
+  z-index: 1;
+}
+
+/* Main clásico para landing */
+.main-landing {
+  margin-left: 0;
+  padding: 0;
+  background: transparent;
+  min-height: 0;
+}
+
+.main-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 24px;
+  box-sizing: border-box;
+  margin-top: 64px;
+  font-size: 0.7em;
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+  .hero-section {
+    flex-direction: column;
+    text-align: center;
+    gap: 32px;
+  }
+  .hero-content {
+    align-items: center;
+    text-align: center;
+  }
+  .cta.cta-lg {
+    align-self: center;
+  }
+  .benefits-section {
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+@media (max-width: 600px) {
+  body {
+    padding-top: 60px; /* Un poco menos de padding para nav en móviles */
+  }
+  .container {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+  .nav-horizontal {
+    padding: 0 16px;
+    height: 60px;
+  }
+  .hero-section {
+    padding: 32px 0;
+  }
+  .hero-content h1 {
+    font-size: 2em;
+  }
+  .testimonials-list {
+    gap: 16px;
+  }
+  .sidebar {
+    width: 56px;
+    padding-top: 16px;
+  }
+  .sidebar ~ main,
+  .container.sidebar-container main {
+    margin-left: 56px;
+    padding: 24px 8px;
+  }
+  .main-landing {
+    margin-left: 0;
+    padding: 0;
+  }
+}
