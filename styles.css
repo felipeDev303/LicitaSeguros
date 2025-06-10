@@ -529,3 +529,12 @@ a {
     padding: 0;
   }
 }
+
+/* Ajustes específicos para el botón de logout en el sidebar */
+.logout-btn img {
+  width: 24px;
+  height: 24px;
+  opacity: 0.4; /* Igual que .sidebar img */
+  filter: none;
+  background: transparent;
+}
