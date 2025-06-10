@@ -90,8 +90,11 @@
           <h2>Oportunidades Destacadas</h2>
         </div>
         <!-- Aquí se consume el servicio y se muestran datos personalizados -->
-        <section>
-          <!-- Lista dinámica de oportunidades, por ejemplo usando JS/fetch -->
+        <section id="opportunities-section">
+          <div id="loading-spinner" style="display: none">
+            Cargando oportunidades...
+          </div>
+          <div id="opportunities-list" class="opportunities-container"></div>
         </section>
       </main>
     </div>

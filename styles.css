@@ -497,6 +497,111 @@ a {
   margin-bottom: 0;
 }
 
+/* Colores para cada estado de licitación */
+.status-abierta {
+  background-color: #28a745;
+} /* Verde */
+.status-cerrada {
+  background-color: #6c757d;
+} /* Gris */
+.status-adjudicada {
+  background-color: #007bff;
+} /* Azul */
+.status-desierta {
+  background-color: #ffc107;
+  color: #333;
+} /* Amarillo */
+.status-suspendida {
+  background-color: #fd7e14;
+} /* Naranja */
+.status-revocada {
+  background-color: #dc3545;
+} /* Rojo */
+.status-desconocido {
+  background-color: #343a40;
+} /* Negro */
+
+/* Estilos para la tarjeta de oportunidad */
+.opportunity-card {
+  background-color: #fff;
+  border: 1px solid #e0e6ed;
+  border-radius: 12px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  box-shadow: 0 2px 8px rgba(34, 46, 60, 0.05);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.opportunity-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 4px 16px rgba(34, 46, 60, 0.1);
+}
+
+.card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.8em;
+}
+
+.card-status {
+  font-weight: 700;
+  padding: 4px 8px;
+  border-radius: 6px;
+  color: #fff;
+  font-size: 0.9em;
+  text-transform: capitalize;
+}
+
+.card-id {
+  color: #6c757d;
+  font-family: monospace;
+}
+
+.card-title {
+  font-size: 1.05em;
+  font-weight: 700;
+  color: #222e3c;
+  margin: 0;
+  line-height: 1.4;
+}
+
+.card-footer {
+  margin-top: auto;
+  padding-top: 12px;
+  border-top: 1px solid #f0f4fa;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.card-date {
+  font-size: 0.9em;
+  color: #4b5c6b;
+  margin: 0;
+}
+
+.card-link {
+  font-size: 0.9em;
+  font-weight: 700;
+  text-decoration: none;
+  color: #1e88e5;
+}
+
+.card-link:hover {
+  text-decoration: underline;
+}
+
+.error-message {
+  color: #dc3545;
+  background-color: #f8d7da;
+  border: 1px solid #f5c6cb;
+  padding: 1rem;
+  border-radius: 8px;
+}
+
 /* Responsive */
 @media (max-width: 900px) {
   .hero-section {
