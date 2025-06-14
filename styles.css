@@ -368,19 +368,17 @@ a {
 /* Barra lateral izquierda solo con iconos */
 .sidebar {
   position: fixed;
-  top: 0;
+  top: 64px;
   left: 0;
-  width: 40px;
-  height: 100vh;
-  background: #fff;
+  width: 210px;
+  height: calc(100vh - 64px);
+  background: #fdfdfd;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  padding-top: 84px;
-  z-index: 1000; /* Asegura que esté por encima del main */
-  box-shadow: 2px 0 8px rgba(34, 46, 60, 0.04);
-  margin-top: 3.5rem; /* Aumenta el valor para mayor separación */
-  margin-top: 64px; /* Asegura que el margen superior sea igual a la altura del navbar horizontal */
+  padding: 24px 12px;
+  z-index: 1000;
+  box-shadow: inset -1px 0 0 #e0e6ed;
+  transition: width 0.3s ease;
 }
 
 .sidebar-opacity {
@@ -394,9 +392,7 @@ a {
   list-style: none;
   padding: 0;
   margin: 0;
-  display: flex;
-  flex-direction: column;
-  gap: 32px;
+  width: 100%;
 }
 
 .sidebar li {
@@ -406,35 +402,45 @@ a {
 .sidebar a {
   display: flex;
   align-items: center;
-  justify-content: center;
-  width: 48px;
-  height: 48px;
-  border-radius: 12px;
-  transition: background 0.2s;
+  gap: 16px;
+  padding: 12px 16px;
+  text-decoration: none;
+  border-radius: 8px;
+  color: #4b4b4b;
+  font-weight: 500;
+  transition: background-color 0.2s, color 0.2s;
+  white-space: nowrap;
+}
+
+.sidebar a img {
+  width: 22px;
+  height: 22px;
+  filter: invert(29%) sepia(0%) saturate(83%) hue-rotate(151deg) brightness(96%) contrast(89%);
+  transition: filter 0.2s;
+}
+
+.sidebar a span {
+  font-size: 14px;
 }
 
 .sidebar a:hover {
-  background: #f0f4fa;
+  background-color: #f0f4fa;
 }
 
-.sidebar img {
-  width: 24px; /* Antes 32px */
-  height: 24px; /* Antes 32px */
-  display: block;
-  filter: none;
-  background: transparent;
-  opacity: 0.4;
+.sidebar a.active {
+  background-color: #e3f2fd;
+  color: #1e88e5;
+  font-weight: 700;
 }
 
-/* Oculta cualquier texto dentro de los enlaces del sidebar */
-.sidebar a span,
-.sidebar a .label,
-.sidebar a p {
-  display: none !important;
-  visibility: hidden !important;
-  width: 0 !important;
-  height: 0 !important;
-  overflow: hidden !important;
+.sidebar a.active img {
+  filter: invert(48%) sepia(87%) saturate(2916%) hue-rotate(193deg) brightness(95%) contrast(87%);
+}
+
+.sidebar .sidebar-divider {
+  height: 1px;
+  background-color: #e0e6ed;
+  margin: 16px 0;
 }
 
 /* Ajuste del main solo si hay sidebar */
@@ -459,9 +465,9 @@ a {
 }
 
 .main-content {
-  max-width: 1200px;
-  margin: 0 auto;
+  margin-left: 210px; /* Asegura que el contenido no quede debajo del sidebar */
   padding: 24px;
+  width: auto; /* Permite que el contenido use el espacio restante */
   box-sizing: border-box;
   margin-top: 64px;
   font-size: 0.7em;
@@ -777,6 +783,49 @@ a {
   border-radius: 8px;
   box-shadow: 0 0 0 2px #1e88e533;
   /* Puedes ajustar el color/fondo según tu preferencia */
+}
+
+.sidebar-icon path {
+  fill: #4b4b4b;
+}
+.sidebar a.active .sidebar-icon path {
+  fill: #1e88e5;
+}
+
+.sidebar a img,
+.sidebar-icon path {
+  fill: #4b4b4b !important;
+  color: #4b4b4b !important;
+}
+
+.hidden-spinner {
+  display: none;
+}
+  filter: none;
+  background: transparent;
+}
+
+/* Resaltar el icono activo en el sidebar */
+.sidebar a.active img {
+  opacity: 1 !important;
+  filter: none !important;
+  background: #e3f2fd;
+  border-radius: 8px;
+  box-shadow: 0 0 0 2px #1e88e533;
+  /* Puedes ajustar el color/fondo según tu preferencia */
+}
+
+.sidebar-icon path {
+  fill: #4b4b4b;
+}
+.sidebar a.active .sidebar-icon path {
+  fill: #1e88e5;
+}
+
+.sidebar a img,
+.sidebar-icon path {
+  fill: #4b4b4b !important;
+  color: #4b4b4b !important;
 }
 
 .hidden-spinner {
