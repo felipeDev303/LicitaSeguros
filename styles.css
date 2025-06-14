@@ -487,6 +487,16 @@ a {
   font-family: "Inter", sans-serif;
 }
 
+.header-flex {
+  display: flex;
+  align-items: baseline;
+  gap: 1rem;
+}
+
+.hero-tagline.no-margin {
+  margin: 0;
+}
+
 /* Grupo de enlaces en la barra lateral */
 .sidebar-group {
   display: block;
@@ -757,4 +767,14 @@ a {
   opacity: 0.4; /* Igual que .sidebar img */
   filter: none;
   background: transparent;
+}
+
+/* Resaltar el icono activo en el sidebar */
+.sidebar a.active img {
+  opacity: 1 !important;
+  filter: none !important;
+  background: #e3f2fd;
+  border-radius: 8px;
+  box-shadow: 0 0 0 2px #1e88e533;
+  /* Puedes ajustar el color/fondo según tu preferencia */
 }
