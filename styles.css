@@ -778,3 +778,7 @@ a {
   box-shadow: 0 0 0 2px #1e88e533;
   /* Puedes ajustar el color/fondo según tu preferencia */
 }
+
+.hidden-spinner {
+  display: none;
+}
